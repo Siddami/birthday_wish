@@ -17,7 +17,8 @@ function updateCountdown() {
         const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
         
-        document.getElementById('countdown').innerHTML = `<span style='color: #3fd9ffab; font-size: 5rem;'>${days}d ${hours}h ${minutes}m ${seconds}s</span> until my baby's day`;
+        document.getElementById('countdown').innerHTML = `<span style='color: #3fd9ffab; 
+        font-size: 4rem;'>${days}d ${hours}h ${minutes}m ${seconds}s</span> until my baby's day`;
     }
 }
 
