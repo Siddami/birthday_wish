@@ -108,10 +108,6 @@ body {
     font-weight: bolder;
 }
 
-#bday{
-    font-weight: bolder;
-}
-
 @media screen and (min-width: 320px) and (max-width: 728px) {
     .bubbles span{
         width: 18px;
@@ -125,6 +121,6 @@ body {
     }
 
     #countdown{
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 }
