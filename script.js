@@ -1,16 +1,13 @@
-document.addEventListener('DOMContentLoaded', function () {
-    var video = document.getElementById('background-video');
-    video.play();
-});
-
 function updateCountdown() {
     const today = new Date();
-    const birthday = new Date('2024-01-29T00:00:00'); // Replace with your boyfriend's birthday
+    const birthday = new Date('2024-01-28T00:00:00');
     const timeDifference = birthday - today;
 
     if (timeDifference <= 0) {
-        document.getElementById('countdown').innerText = "It's birthday time!";
+        document.getElementById('countdown').innerText = "Happy Birthday Abiodunmi!";
+        document.getElementById('bdayW').classList.remove('hidden');
         document.getElementById('birthdayMessage').classList.remove('hidden');
+        document.getElementById('bday-end').classList.remove('hidden');
     } else {
         const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
         const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
