@@ -62,6 +62,7 @@ body {
     rgb(1, 1, 22) 100%, 
     rgba(0,212,255,1) 100%);
     width: 80%;
+    text-align: center;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     margin: 0 auto;
     position: absolute;
