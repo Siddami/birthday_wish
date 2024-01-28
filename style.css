@@ -56,7 +56,7 @@ body {
 }
 
 .container{
-    padding: 10px;
+    padding: 20px;
     background: rgb(13,13,14);
     background: linear-gradient(90deg, rgba(13,13,14,0.8911939775910365) 99%, 
     rgb(1, 1, 22) 100%, 
@@ -70,22 +70,47 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 #birthdayMessage {
     color: #00d9ff;
     font-size: 1rem;
+    text-align: center;
+    line-height: 1.5;
 }
 
 .hidden {
     display: none;
 }
 
+#countdown{
+    font-size: 5rem;
+    color:#3fd9ffab;
+    font-weight: bolder;
+}
+
+#bday{
+    font-weight: bolder;
+}
 
 @media screen and (min-width: 320px) and (max-width: 728px) {
     .bubbles span{
         width: 18px;
         height: 18px;
         margin: 0 2px;
+    }
+
+    .container{
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    #countdown{
+        font-size: 3rem;
     }
 }
