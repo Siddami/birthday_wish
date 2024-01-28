@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    background: #00040f;
+    color:antiquewhite;
+}
+
+.full--container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bubbles{
+    position: relative;
+    display: flex;
+}
+
+.bubbles span{
+    position: relative;
+    width: 25px;
+    height: 25px;
+    background: #3fd9ffab;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #03293fab,
+    0 0 50px #3fd9ffab,
+    0 0 100px #3fd9ffab;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s/ var(--i));
+}
+
+.bubbles span:nth-child(even){
+    background: #fc0442;
+    box-shadow: 0 0 0 10px #3a0210ab,
+    0 0 50px #fc0442,
+    0 0 100px #fc0442;
+}
+
+@keyframes animate {
+    0%{
+        transform: translateY(100vh) scale(0);
+    }
+    
+    100%{
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+.container{
+    padding: 10px;
+    background: rgb(13,13,14);
+    background: linear-gradient(90deg, rgba(13,13,14,0.8911939775910365) 99%, 
+    rgb(1, 1, 22) 100%, 
+    rgba(0,212,255,1) 100%);
+    width: 80%;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+}
+
+#birthdayMessage {
+    color: #ff4500;
+    font-size: 18px;
+}
+
+.hidden {
+    display: none;
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 728px) {
+    .bubbles span{
+        width: 15px;
+        height: 15px;
+    }
+}
