@@ -22,6 +22,34 @@ function updateCountdown() {
     }
 }
 
+
+
+const slider = document.getElementById('slider');
+const slides = document.querySelectorAll('.slide');
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+let currentIndex = 0;
+
+function showSlide(index) {
+            // Wrap around the slides
+    if (index >= slides.length) {
+        currentIndex = 0;
+    } else if (index < 0) {
+        currentIndex = slides.length - 1;
+    } else {
+        currentIndex = index;
+    }
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+        // Event listeners for navigation
+prev.addEventListener('click', () => showSlide(currentIndex - 1));
+next.addEventListener('click', () => showSlide(currentIndex + 1));
+
+
+// Auto slide every 3 seconds
+setInterval(() => showSlide(currentIndex + 1), 3000);
+
 // Update countdown every second
 setInterval(updateCountdown, 1000);
 
