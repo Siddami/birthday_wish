@@ -1,6 +1,6 @@
 function updateCountdown() {
     const today = new Date();
-    const birthday = new Date('2025-01-29T00:00:00');
+    const birthday = new Date('2025-01-26T00:00:00');
     const timeDifference = birthday - today;
 
     if (timeDifference <= 0) {
