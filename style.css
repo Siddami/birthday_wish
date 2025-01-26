@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,131 +6,217 @@
 
 body {
     font-family: 'Libre Baskerville', serif;
-    min-height: 100vh;
-    background: #00040f;
-    color:antiquewhite;
+    background: linear-gradient(to bottom, #babcbe, #464646);
+    color: antiquewhite;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .full--container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     position: relative;
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    height: 120vh;
+    overflow: hidden; /* Prevent bubble overflow */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    gap: 2rem;
 }
 
-.bubbles{
+.bubbles {
     position: relative;
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 5px;
 }
 
-.bubbles span{
+.bubbles span {
     position: relative;
-    width: 25px;
-    height: 25px;
-    background: #3fd9ffab;
+    width: 18px;
+    height: 18px;
+    background: #91bec9ab;
     margin: 0 4px;
     border-radius: 50%;
-    box-shadow: 0 0 0 10px #03293fab,
-    0 0 50px #3fd9ffab,
-    0 0 100px #3fd9ffab;
+    box-shadow: 0 0 0 10px #4d6674ab, 0 0 50px #3fd9ffab, 0 0 100px #3fd9ffab;
     animation: animate 15s linear infinite;
-    animation-duration: calc(115s/ var(--i));
+    animation-duration: calc(30s / clamp(10, var(--i, 1), 30)); /* Added fallback for --i */
 }
 
-.bubbles span:nth-child(even){
-    background: #fc0442;
-    box-shadow: 0 0 0 10px #3a0210ab,
-    0 0 50px #fc0442,
-    0 0 100px #fc0442;
+.bubbles span:nth-child(even) {
+    background: #d1bbc0;
+    box-shadow: 0 0 0 10px #cababeab, 0 0 50px #fc0442, 0 0 100px #fc0442;
 }
 
-.bubbles .down{
+.bubbles .down {
     animation: down 15s linear infinite;
-    animation-duration: calc(115s/ var(--i));
+    animation-duration: calc(30s / clamp(10, var(--i, 1), 30));
 }
+
 @keyframes animate {
-    0%{
+    0% {
         transform: translateY(100vh) scale(0);
     }
-    
-    100%{
+    100% {
         transform: translateY(-10vh) scale(1);
     }
 }
 
 @keyframes down {
-    100%{
+    100% {
         transform: translateY(100vh) scale(1);
     }
-    
-    0%{
+    0% {
         transform: translateY(-10vh) scale(0);
     }
 }
 
-.container{
-    padding: 20px;
-    background: rgb(13,13,14);
-    background: linear-gradient(90deg, rgba(13,13,14,0.8911939775910365) 99%, 
-    rgb(1, 1, 22) 100%, 
-    rgba(0,212,255,1) 100%);
+.message {
+    background: linear-gradient(90deg, rgba(58, 58, 59, 0.89) 99%, rgb(1, 1, 22) 100%);
     width: 80%;
+    max-width: 1000px;
     text-align: center;
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.75);
     margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     font-size: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
+    border-radius: 15px;
+    padding: 30px;
 }
 
 #birthdayMessage {
-    color: #00d9ff;
+    color: #97a9ac;
     font-size: 1.5rem;
     text-align: center;
     line-height: 1.5;
+    animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .hidden {
     display: none;
 }
 
-#countdown{
-    font-size: 5rem;
-    color:#3fd9ffab;
-    font-weight: bolder;
+#bday-end, #bdayW{
+    font-size: 1.3rem;
 }
 
-@media screen and (min-width: 320px) and (max-width: 728px) {
-    .bubbles span{
+#countdown {
+    font-size: 3rem;
+    color: #86a3aaab;
+    font-weight: bolder;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.slide-container {
+    overflow: hidden;
+    border: 2px solid #ddd;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(13, 13, 14, 0.89) 99%, rgb(1, 1, 22) 100%);
+    width: 80%;
+    max-width: 1000px;
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.75);
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 2rem;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.slide img {
+    width: auto; /* Maintain the aspect ratio */
+    display: block; /* Center the image vertically */
+    margin: 0 auto; /* Center the image horizontally */
+    border-radius: 8px; /* Keep the rounded corners */
+    min-height: 100%;
+    object-fit:fill;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+#prev, #next {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.5s ease;
+}
+
+#prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.footer{
+    margin-block: 1.5rem;
+    margin-inline: 0.8rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 728px) {
+    .bubbles span {
         width: 18px;
         height: 18px;
         margin: 0 2px;
     }
 
-    .container{
-        width: 90%;
-        padding: 5px;
-        margin: 10px auto;
+    .bubbles span:nth-child(n+10), .bubbles span:nth-child(n+8) {
+        display: none;
     }
 
-    #countdown{
+    .message {
+        width: 90%;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .slide-container {
+        width: 90%;
+        height: 50vh;
+    }
+
+    #countdown {
         font-size: 2.5rem;
     }
 
     #birthdayMessage {
         font-size: 1.2rem;
         line-height: 1.5;
-    }
-
-    #bday-end{
-        font-size: 1.5rem;
     }
 }
