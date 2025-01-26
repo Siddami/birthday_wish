@@ -22,7 +22,11 @@ function updateCountdown() {
     }
 }
 
+// Update countdown every second
+setInterval(updateCountdown, 1000);
 
+// Run the initial update
+updateCountdown();
 
 const slider = document.getElementById('slider');
 const slides = document.querySelectorAll('.slide');
@@ -50,8 +54,4 @@ next.addEventListener('click', () => showSlide(currentIndex + 1));
 // Auto slide every 3 seconds
 setInterval(() => showSlide(currentIndex + 1), 3000);
 
-// Update countdown every second
-setInterval(updateCountdown, 1000);
 
-// Run the initial update
-updateCountdown();
